@@ -36,13 +36,13 @@ class Main extends Component {
 	    });
 	}
 
-	// getSavedArticles = () => {
- //        API.getSavedArticles().then((response) => {
- //            if (response.data !== this.state.savedArticles) {
- //                this.setState({ savedArticles: response.data });
- //            }
- //        });
- //    }
+	getSavedArticles = () => {
+        API.getSavedArticles().then((response) => {
+            if (response.data !== this.state.savedArticles) {
+                this.setState({ savedArticles: response.data });
+            }
+        });
+    }
 
     getArticles = () => {
 	    API.getSavedArticles().then((response) => {
