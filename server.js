@@ -1,4 +1,5 @@
 // Require our dependecies
+require('dotenv').config()
 var express = require("express");
 var mongoose = require("mongoose");
 var bluebird = require("bluebird");
@@ -14,26 +15,13 @@ app.use(bodyParser.json());
 app.use(express.static(__dirname + "/public"));
 app.use("/", routes);
 
+// heroku will supply this MONGODB_URI if configured with heroku addons:create mongolab
+if (process.env.MONGODB_URI) {
+  mongoose.connect(process.env.MONGODB_URI);
+} else {
+  mongoose.connect("mongodb://localhost/articlesApp");
+}
 
-
-// if (process.env.MONGODB_URI) {
-//   mongoose = mongoose.connect(process.env.MONGODB_URI);
-// } else {
-//   mongoose = mongoose.connect("mongodb://localhost/articlesApp");
-// }
-
-
-// var db = mongoose.connection;
-
-// db.on("error", function(err) {
-//   console.log(`Mongoose Error: ${err}`);
-// });
-// ===============================================================================================================
-
-// const MONGODB_URI: mongodb://heroku_7mzq89w2:clits952ovo1c33bsntc8hp97v@ds121014.mlab.com:21014/heroku_7mzq89w2
-// var db = process.env.MONGODB_URI || "mongodb://localhost/articlesApp";
-
-mongoose.connect("mongodb://heroku_d8wws4p4:dn8e9bih6cbqa9bk9g4b1tqn6m@ds127564.mlab.com:27564/heroku_d8wws4p4");
 var db = mongoose.connection;
 
 // Show any mongoose errors
