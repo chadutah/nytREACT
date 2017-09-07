@@ -5,13 +5,15 @@
   "main": "server.js",
   "scripts": {
     "dev": "webpack -w",
-    "start": "node server.js"
+    "start": "node server.js",
+    "heroku-prebuild": "webpack"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "dependencies": {
     "axios": "^0.15.3",
+    "babel-preset-stage-1": "^6.24.1",
     "bluebird": "^3.4.7",
     "body-parser": "^1.15.2",
     "express": "^4.14.0",
