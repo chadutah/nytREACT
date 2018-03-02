@@ -17,3 +17,18 @@ https://novialim.herokuapp.com/
 * Node.js
 * React Router v4
 * Axios
+
+## Deploy to Heroku
+* heroku create
+* heroku addons:create mongolab
+* git add .
+* git commit -m "heroku deploy"
+* git push heroku master
+
+## heroku default env vars (set by heroku)
+* NPM_CONFIG_LOGLEVEL = error
+* NPM_CONFIG_PRODUCTION = true
+* NODE_VERBOSE = false
+* NODE_ENV = production
+* NODE_MODULES_CACHE = true
+* MONGODB_URI = created in heroku after running heroku addons:create mongolab
